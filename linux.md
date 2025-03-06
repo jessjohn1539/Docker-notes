@@ -145,8 +145,39 @@ Permissions are represented as:
 
 Example:
 ```
--rw-r--r-- 1 user group 1234 Feb 28 10:00 file.txt
+drwxrwxr-x  5 user group 4096 Jan 10 09:11 dir_name
 ```
+The output drwxrwxr-x represents the permissions and type of a directory. Here's a breakdown of each letter and what it signifies:
+
+1. Type of File/Directory: 
+    - d: Indicates that this entry is a directory. If it were a regular file, this would be represented by a hyphen (-).
+
+2. Permissions for Owner, Group, and Others:
+    - The string rwxrwxr-x is divided into four parts:
+    - First triplet (rwx): Permissions for the owner of the file/directory.
+    - Second triplet (rwx): Permissions for the group associated with the file/directory.
+    - Third triplet (r-x): Permissions for others (all users who are not the owner and not in  the group).
+
+3. Permission Symbols:
+    - r (Read): Allows viewing of file contents and listing directory contents.
+    - w (Write): Allows modification of the file contents (writing, editing, or deleting).
+    - x (Execute): For files, it allows execution of the file as a program. For directories, it allows accessing contents and traversing the directory.
+
+#### Set File Permissions
+Permissions are represented using three-digit octal numbers:
+
+- r (read) = 4
+- w (write) = 2
+- x (execute) = 1
+- Combine values to set permissions.
+
+Example:
+```
+chmod 644 file.txt
+```
+- 6 → (4 + 2) → Read & Write for owner
+- 4 → Read for group
+- 4 → Read for others
 
 ### 9. System Monitoring and Logs
 ```sh
